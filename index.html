@@ -1,0 +1,30 @@
+<html>
+    <head>
+      <title>CANVAS</title>
+      <style>
+        body {
+          background-color: black;
+          text-align: center;
+        }
+        #canvas {
+          background-color: darkgray;
+        }
+      </style>
+    </head>
+    <body>
+      <canvas id="canvas" width="400" height="400"></canvas>
+    
+
+      <script>
+        var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d')
+
+        ctx.fillStyle = 'green' // 色を指定する
+        ctx.fillRect(0, 0, 50, 50) // 
+
+        var circle = canvas.getContext('2d')
+        circle.fillStyle = 'red' 
+        circle.fillRect(0, 50, 50, 50) 
+      </script>
+    </body>
+  </html>
