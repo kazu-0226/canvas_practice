@@ -17,14 +17,32 @@
 
       <script>
         var canvas = document.getElementById('canvas')
-        var ctx = canvas.getContext('2d')
 
-        ctx.fillStyle = 'green' // 色を指定する
-        ctx.fillRect(0, 0, 50, 50) // 
+        var ctx = canvas.getContext('2d')
+        ctx.strokeStyle = 'blue' //線の色
+        ctx.fillStyle = 'green' // 塗り潰しの色を指定する
+        ctx.fillRect(0, 0, 50, 50) // 矩形を描画する関数(x, y, width, height)
+        ctx.clearRect(5, 5, 40, 40) // 指定された領域を消去(x, y, width, height)
+        ctx.strokeRect(10, 10, 30, 30) //  矩形の輪郭(x, y, width, height)
 
         var circle = canvas.getContext('2d')
-        circle.fillStyle = 'red' 
-        circle.fillRect(0, 50, 50, 50) 
+        circle.strokeStyle = 'red' // 
+        circle.fillStyle = 'black' 
+        circle.beginPath()// パスを初期化
+        circle.arc(100, 50, 30, 0, 2 * Math.PI)
+        circle.closePath()
+        circle.fill()
+        // 線の描画
+        var line = canvas.getContext('2d')
+        line.strokeStyle = 'blue'; // 線の色
+        line.lineWidth = 3; // 線の幅
+        line.lineCap = 'butt'; // 線の先端の形状
+        line.beginPath(); // パスを初期化
+        line.moveTo(300, 50); // x軸に300px, y軸に50px移動した箇所を開始位置として筆をおろす
+        line.lineTo(350, 50); // x軸に350px, y軸に50px移動した箇所に筆を動かす
+        line.lineTo(350, 100); // x軸に350px, y軸に100px移動した箇所に筆を動かす
+        line.closePath(); // 最終地点(100, 100)から開始地点まで筆を動かす
+        line.stroke();
       </script>
     </body>
   </html>
