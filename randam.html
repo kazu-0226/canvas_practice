@@ -1,0 +1,47 @@
+ <html>
+    <head>
+      <title>CANVAS</title>
+      <style>
+        body {
+          background-color: black;
+          text-align: center;
+        }
+        #canvas {
+          background-color: darkgray;
+        }
+      </style>
+    </head>
+    <body>
+      <canvas id="canvas" width="400" height="400"></canvas>
+    
+
+      <script>
+        var canvas = document.getElementById('canvas')
+        var ctx = canvas.getContext('2d')
+
+        for(var i= 0; i<50; i++){
+          ctx.fillStyle = randomColorCode() // 色を指定する
+          ctx.fillRect(
+            Math.random()*400, 
+            Math.random()*400, 
+            Math.random()*70 + 20, // 最低20以上のサイズにするため + 20
+            Math.random()*70 + 20  // 最低20以上のサイズにするため + 20
+          ) // 矩形で塗り潰すエリア
+        }
+        
+
+        function randomColorCode(){
+          var randomColor = "#"
+          for(var i =0; i < 6; i++){
+            randomColor += generateHexCharacter()
+          }
+
+          function generateHexCharacter(){
+            return Math.floor(16*Math.random()).toString(16)
+          }
+
+          return randomColor
+        }
+      </script>
+    </body>
+  </html>
