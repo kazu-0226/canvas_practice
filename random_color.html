@@ -18,8 +18,24 @@
       <script>
         var canvas = document.getElementById('canvas')
         var ctx = canvas.getContext('2d')
+
         ctx.fillStyle = randomColorCode() // 色を指定する
         ctx.fillRect(50, 50, 200, 200) // 矩形で塗り潰すエリア
+
+        // #000000 ~ #ffffff までの色コードを返す関数
+        function randomColorCode() {
+          var randomColor = "#"
+          for(var i = 0; i < 6; i++) {
+            randomColor += generateHexCharacter()
+          }
+
+          // ランダムな16進数を一文字返す関数
+          function generateHexCharacter(){
+            return Math.floor(16*Math.random()).toString(16) 
+          }
+
+          return randomColor
+        }
 
     
       </script>
