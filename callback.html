@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="namefield">
+    <button id="button" onclick="sayHello()">挨拶をする</button>
+
+    <p id="result"></p>
+    <script>
+        // ボタンを押した時の関数
+        function sayHello(){
+          var name = document.getElementById("namefield").value
+          hello(name, result) //  hello関数の引数にname（入力された名前）、result関数を渡す
+        }
+
+        // コールバック関数を呼び出す
+        function hello(name, callback){ //  引数のnameに入力された名前、callbackにresult関数を受取る
+          callback(name) //  result関数に引数nameを渡して実行
+        }
+
+        // コールバック関数
+        function result(name){
+            document.getElementById("result").textContent = name + "さん、こんにちは！"
+        }
+    </script>
+</body>
+</html>
